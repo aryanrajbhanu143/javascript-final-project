@@ -1,1 +1,12 @@
-# javascript-final-project
+$(document).ready(function() {
+    var productList = window.localStorage.getItem('product-List');
+    productList = productList === null || productList === '' ? [] : productList;
+    productList = productList.length > 0 ? JSON.parse(productList) : [];
+
+    var totalCount = 0;
+    for(var i=0; i<productList.length; i++) {
+        totalCount = totalCount + productList[i].count;
+    }
+
+    $('#cart-number').html(totalCount);
+})
